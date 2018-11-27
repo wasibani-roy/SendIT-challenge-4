@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<title>SendIT</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="UI/css/index.css">
+<link rel="stylesheet" href="UI/css/login.css">
+<script src="UI/js/main.js"></script>
+<body>
+
+<div class="ADC-CH1-top">
+  <div class="ADC-CH1-bar ADC-CH1-white ADC-CH1-wide ADC-CH1-padding ADC-CH1-card">
+    <a href="#home" class="ADC-CH1-bar-item ADC-CH1-button"><b>Send</b>IT</a>
+    <div class="ADC-CH1-right ADC-CH1-hide-small">
+      <a href="admin.html" class="ADC-CH1-bar-item ADC-CH1-button">Admin</a>
+      <a href="user.html" class="ADC-CH1-bar-item ADC-CH1-button">User</a>
+      <a href="#" class="ADC-CH1-bar-item ADC-CH1-button">Contact</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="ADC-CH1-display-container ADC-CH1-content ADC-CH1-wide"  id="home">
+  <img class="ADC-CH1-image" src="image/sendIT-parcel.jpg" alt="Architecture">
+  <div class="ADC-CH1-display-middle ADC-CH1-margin-top ADC-CH1-center">
+    <h1 class="ADC-CH1-xxlarge ADC-CH1-text-white"><span class="ADC-CH1-padding ADC-CH1-black ADC-CH1-opacity-min"><b>SendIT</b></span> <span class="ADC-CH1-hide-small ADC-CH1-text-light-grey">Parcel Delivery</span></h1>
+  </div>
+</header>
+
+<!-- Page content -->
+<div class="ADC-CH1-content ADC-CH1-padding">
+
+  <!-- About Section -->
+  <div class="ADC-CH1-container ADC-CH1-padding-32" id="about">
+    <h3 class="ADC-CH1-border-bottom ADC-CH1-border-light-grey ADC-CH1-padding-16">About</h3>
+    <p>Welcome to SendIT percel delivery service. We have been in existance for close to a decade picking up a wealth of knowledge in the business of parcel transfer. We have a number of customers who trust us everyday to deliver there parcels anywhere anytime in a safe and efficient manner. To become a part of our family please click the register button below or to continue using the service select the Login button
+    </p>
+    <p style="text-align:center;"><button onclick="document.getElementById('id01').style.display='block'" class="ADC-CH1-button ADC-CH1-green ADC-CH1-large">Login</button> <button onclick="document.getElementById('id02').style.display='block'" class="ADC-CH1-button ADC-CH12-green ADC-CH1-large">Register</button></p>
+  </div>
+
+  <div id="id01" class="ADC-CH1-modal">
+    <div class="ADC-CH1-modal-content ADC-CH1-card-4 ADC-CH1-animate-zoom">
+  
+      <div class="ADC-CH1-center"><br>
+        <span onclick="document.getElementById('id01').style.display='none'" class="ADC-CH1-button ADC-CH1-xlarge ADC-CH1-transparent ADC-CH1-display-topright" title="Close Modal">&times;</span>
+        <img src="image/avatar3.png" alt="Avatar" class="ADC-CH1-circle ADC-CH1-margin-top">
+      </div>
+      <form method="POST" id="signinForm" >
+        <div class="ADC-CH1-container">
+        <div class="ADC-CH1-section">
+      <label for="username" class="control-label">Username</label>
+        <input type="name" class="ADC-CH1-input ADC-CH1-border ADC-CH1-margin-bottom" name="username" placeholder="Username" id="user"><br>
+        <label for="Password" class="control-label">Password</label>
+         <input type="password" name= "password" id="pass" class="ADC-CH1-input ADC-CH1-border" placeholder="password"><br>
+         <input type="radio" value="user" checked name="clientType"><label>User</label>
+                <input type="radio" value="admin" name="clientType"><label>Admin</label><br>
+         <button class="ADC-CH1-button ADC-CH1-block ADC-CH1-green ADC-CH1-section ADC-CH1-padding" type="submit">Login</button>
+    </div>
+<input class="ADC-CH1-check ADC-CH1-margin-top" type="checkbox" checked="checked"> Remember me 
+
+      </div>
+
+      </form>
+      
+
+      <div class="ADC-CH1-container ADC-CH1-border-top ADC-CH1-padding-16 ADC-CH1-light-grey">
+        <button onclick="document.getElementById('id01').style.display='none'" type="button" class="ADC-CH1-button ADC-CH1-red">Cancel</button>
+        <span class="ADC-CH1-right ADC-CH1-padding ADC-CH1-hide-small">Forgot <a href="#">password?</a></span>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="id02" class="ADC-CH1-modal">
+    <div class="ADC-CH1-modal-content ADC-CH1-card-4 ADC-CH1-animate-zoom">
+  
+      <div class="ADC-CH1-center"><br>
+        <span onclick="document.getElementById('id02').style.display='none'" class="ADC-CH1-button ADC-CH1-xlarge ADC-CH1-transparent ADC-CH1-display-topright" title="Close Modal">&times;</span>
+        <img src="image/avatar3.png" alt="Avatar" class="ADC-CH1-circle ADC-CH1-margin-top">
+      </div>
+
+      <form class="ADC-CH1-container" action="login.html" id="signupForm" method="POST">
+        <div class="ADC-CH1-section">
+        <input type="hidden" name="csrf_token" value="randon string">
+          <label><b>Username</b></label>
+          <input class="ADC-CH1-input ADC-CH1-border ADC-CH1-margin-bottom" type="text" placeholder="Enter Username" name="usrname" id="usrname" required>
+          <label><b>Email</b></label>
+          <input class="ADC-CH1-input ADC-CH1-border ADC-CH1-margin-bottom" type="text" placeholder="Enter Email" name="email" id="email" required>
+          <label><b>Password</b></label>
+          <input class="ADC-CH1-input ADC-CH1-border" type="text" placeholder="Enter Password" name="psw" id="psw" required>
+          <label><b>Role</b></label>
+          <input class="ADC-CH1-input ADC-CH1-border" type="text" placeholder="Enter role" name="role" id="role" required>
+          <button class="ADC-CH1-button ADC-CH1-block ADC-CH1-green ADC-CH1-section ADC-CH1-padding" type="submit">Register</button>
+        </div>
+      </form>
+
+      <div class="ADC-CH1-container ADC-CH1-border-top ADC-CH1-padding-16 ADC-CH1-light-grey">
+        <button onclick="document.getElementById('id02').style.display='none'" type="button" class="ADC-CH1-button ADC-CH1-red">Cancel</button>
+      </div>
+
+    </div>
+  </div>
+<!-- End page content -->
+</div>
+
+
+<!-- Footer -->
+<footer class="ADC-CH1-center ADC-CH1-black ADC-CH1-padding-16">
+  <p>Powered by <a href="default.html" title="ADC-CH1.CSS" target="_blank" class="ADC-CH1-hover-text-green">Andela</a></p>
+</footer>
+<script src="UI/js/signup.js"></script>
+<script src="UI/js/signin.js"></script>
+</body>
+
+</html>

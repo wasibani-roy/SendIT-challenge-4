@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<title>User | SendIT</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="UI/css/user.css">
+<link rel="stylesheet" href="UI/css/index.css">
+<link rel="stylesheet" href="UI/css/login.css">
+<link rel="stylesheet" href="UI/css/edits.css">
+<link rel="stylesheet" href="UI/css/dashboard.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="../../cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<body>
+
+<!-- Icon Bar (Sidebar - hidden on small screens) -->
+<nav class="ADC-C1-sidebar ADC-C1-bar-block ADC-C1-small ADC-C1-hide-small ADC-C1-center">
+  <!-- Avatar image in top left corner -->
+  <img src="image/avatar3.png" class="avatar-img">
+  <a href="#" class="ADC-C1-bar-item ADC-C1-button ADC-C1-padding-large ADC-C1-black">
+    <i class="fa fa-home ADC-C1-xxlarge"></i>
+    <p>HOME</p>
+  </a>
+  <a href="#about" class="ADC-C1-bar-item ADC-C1-button ADC-C1-padding-large ADC-C1-hover-black">
+    <i class="fa fa-user ADC-C1-xxlarge"></i>
+    <p>CREATE</p>
+  </a>
+  <a href="index.html" class="ADC-C1-bar-item ADC-C1-button ADC-C1-padding-large ADC-C1-hover-black">
+    <i class="fa fa-envelope ADC-C1-xxlarge"></i>
+    <p>LOG OUT</p>
+  </a>
+</nav>
+
+<!-- Navbar on small screens (Hidden on medium and large screens) -->
+<div class="ADC-C1-top ADC-C1-hide-large ADC-C1-hide-medium" id="myNavbar">
+  <div class="ADC-C1-bar ADC-C1-black ADC-C1-opacity ADC-C1-hover-opacity-off ADC-C1-center ADC-C1-small">
+    <a href="#" class="ADC-C1-bar-item ADC-C1-button home-link" >HOME</a>
+    <a href="#about" class="ADC-C1-bar-item ADC-C1-button order-link" >Orders</a>
+    <a href="index.html" class="ADC-C1-bar-item ADC-C1-button logout-link" style="width:11% !important">LOG OUT</a>
+  </div>
+</div>
+
+<!-- Page Content -->
+<div class="ADC-C1-padding-large" id="main">
+  <!-- Header/Home -->
+  <header class="ADC-C1-container ADC-C1-padding-32 ADC-C1-center ADC-C1-black" id="home">
+    <div class="ADC-C1-panel">
+  <div class="ADC-C1-row">
+    <a href="javascript:void(0)" id="testbtn" onclick="openCity(event, 'London');">
+      <div class="ADC-C1-third tablink ADC-C1-bottombar ADC-C1-hover-light-grey ADC-C1-padding">Latest Orders</div>
+    </a>
+    <a href="javascript:void(0)" onclick="openCity(event, 'Paris');">
+      <div class="ADC-C1-third tablink ADC-C1-bottombar ADC-C1-hover-light-grey ADC-C1-padding">User Profile</div>
+    </a>
+    <a href="javascript:void(0)" onclick="openCity(event, 'Tokyo');">
+      <div class="ADC-C1-third tablink ADC-C1-bottombar ADC-C1-hover-light-grey ADC-C1-padding">Edit Order</div>
+    </a>
+  </div>
+
+  <div id="London" class="ADC-C1-container city">
+    <div class="panel panel-default">
+       <div class="panel-heading">
+         <strong>
+           <span class="glyphicon glyphicon-th"></span>
+           <span>Parcel Orders</span>
+         </strong>
+       </div>
+       <div class="panel-body" id="order-history">
+         <table class="table table-striped table-bordered table-condensed" id="orderItem">
+         </table>
+       </div>
+     </div>
+  </div>
+
+  <div id="Paris" class="ADC-C1-container city">
+    <div class="ADC-C1-row-padding">
+
+<div class="ADC-C1-third ADC-C1-margin-bottom">
+  <ul class="ADC-C1-ul ADC-C1-border ADC-C1-center ADC-C1-hover-shadow">
+    <li class="ADC-C1-black ADC-C1-xlarge ADC-C1-padding-32">Delivered Parcel</li>
+    <li class="ADC-C1-padding-16"><b>15</b> All Areas</li>
+    <li class="ADC-C1-padding-16"><b>5</b> Central Region</li>
+    <li class="ADC-C1-padding-16"><b>10</b> Eastern Region</li>
+    <li class="ADC-C1-padding-16"><b>0</b> Western Region</li>
+    <li class="ADC-C1-padding-16">
+      <h2 class="ADC-C1-wide">2 parcels</h2>
+      <span class="ADC-C1-opacity">per month</span>
+    </li>
+  </ul>
+</div>
+
+<div class="ADC-C1-third ADC-C1-margin-bottom">
+  
+  <ul class="ADC-C1-ul ADC-C1-border ADC-C1-center ADC-C1-hover-shadow">
+    <li class="ADC-C1-green ADC-C1-xlarge ADC-C1-padding-32">In Transit</li>
+    <li class="ADC-C1-padding-16"><b>20</b> All Areas</li>
+    <li class="ADC-C1-padding-16"><b>10</b> Central Region</li>
+    <li class="ADC-C1-padding-16"><b>6</b> Eastern Region</li>
+    <li class="ADC-C1-padding-16"><b>4</b> Western Region</li>
+    <li class="ADC-C1-padding-16">
+      <h2 class="ADC-C1-wide">3 Parcels</h2>
+      <span class="ADC-C1-opacity">per month</span>
+    </li>
+  </ul>
+</div>
+
+<div class="ADC-C1-third ADC-C1-margin-bottom">
+  <ul class="ADC-C1-ul ADC-C1-border ADC-C1-center ADC-C1-hover-shadow">
+    <li class="ADC-C1-black ADC-C1-xlarge ADC-C1-padding-32">All Orders</li>
+    <li class="ADC-C1-padding-16"><b>#001</b> Chairs</li>
+    <li class="ADC-C1-padding-16"><b>#002</b> Table</li>
+    <li class="ADC-C1-padding-16"><b>#003</b> Clothes</li>
+    <li class="ADC-C1-padding-16"><b>#004</b> Television</li>
+    <li class="ADC-C1-padding-16">
+      <h2 class="ADC-C1-wide">See More</h2>
+      <span class="ADC-C1-opacity">Orders</span>
+    </li>
+  </ul>
+</div>
+
+</div>
+  </div>
+
+  <div id="Tokyo" class="ADC-C1-container city">
+    <div class="panel panel-default">
+       <div class="panel-heading">
+         <strong>
+           <span class="glyphicon glyphicon-th"></span>
+           <span>Parcels</span>
+         </strong>
+       </div>
+       <div class="panel-body">
+         <table class="table table-striped table-bordered table-condensed">
+          <thead>
+           <tr>
+             <th>Receiver Name</th>
+             <th>Price</th>
+             <th>Destination</th>
+             <th>Date</th>
+             <th>Action</th>
+           <tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Wasibani Roy</td>
+              <td>15000/=</td>
+              <td>Mityana</td>
+              <td>3/9/2018 12:30:05</td>
+              <td><button class="btn1 btn1-primary" onclick="document.getElementById('id01').style.display='block'">Edit</button> <button class="btn1 btn1-primary" onclick="document.getElementById('id02').style.display='block'">Cancel</button></td>
+            </tr>
+            <tr>
+              <td>Tom</td>
+              <td>20000/=</td>
+              <td>Gulu</td>
+              <td>4/9/2018 09:30:05</td>
+              <td><button class="btn1 btn1-primary" onclick="document.getElementById('id03').style.display='block'">Edit</button> <button class="btn1 btn1-primary" onclick="document.getElementById('id04').style.display='block'">Cancel</button></td>
+            </tr>
+            <tr>
+              <td>Grace</td>
+              <td>36000/=</td>
+              <td>Mbarara</td>
+              <td>5/9/2018 16:00:05</td>
+              <td><button class="btn1 btn1-primary" onclick="document.getElementById('id05').style.display='block'">Edit</button> <button class="btn1 btn1-primary" onclick="document.getElementById('id06').style.display='block'">Cancel</button></td>
+            </tr>
+          <tbody>
+         </table>
+       </div>
+     </div>
+  </div>
+</div>
+  </header>
+
+  <!-- About Section -->
+  <div class="ADC-C1-content ADC-C1-justify ADC-C1-text-grey ADC-C1-padding-64" id="about">
+    <h2 class="ADC-C1-text-light-grey">Create Order</h2>
+    <hr style="width:200px" class="ADC-C1-opacity">
+    <form class="ADC-CH1-container" action="#London">
+        <div class="ADC-CH1-section">
+          <label><b>Customer Name</b></label><br><br>
+          <input class="ADC-CH1-input ADC-CH1-border ADC-CH1-margin-bottom" type="text" placeholder="Enter your Name" name="parcelname" required><br><br><br>
+          <label><b>Parcel Name</b></label><br><br>
+          <input class="ADC-CH1-input ADC-CH1-border ADC-CH1-margin-bottom" type="text" placeholder="Enter Parcel Name" name="parcelname" required><br><br><br>
+          <label><b>Receiver Name</b></label><br><br>
+          <input class="ADC-CH1-input ADC-CH1-border ADC-CH1-margin-bottom" type="text" placeholder="Enter Receiver Name" name="parcelname" required><br><br><br>
+          <label><b>Destination</b></label><br><br>
+          <input class="ADC-CH1-input ADC-CH1-border ADC-CH1-margin-bottom" type="text" placeholder="Enter destination" name="destination" required><br><br><br>
+          <label><b>Price</b></label><br><br>
+          <input class="ADC-CH1-input ADC-CH1-border" type="text" placeholder="Enter price" name="psw" required><br><br><br>
+          <button class="ADC-CH1-button ADC-CH1-block ADC-CH1-green ADC-CH1-section ADC-CH1-padding" type="submit">Create</button>
+        </div>
+      </form>
+  <!-- End About Section -->
+  </div>
+
+  <div id="id01" class="ADC-CH1-modal">
+    <div class="ADC-CH1-modal-content ADC-CH1-card-4 ADC-CH1-animate-zoom">
+  
+      <div class="ADC-CH1-center"><br>
+        <span onclick="document.getElementById('id01').style.display='none'" class="ADC-CH1-button ADC-CH1-xlarge ADC-CH1-transparent ADC-CH1-display-topright" title="Close Modal">&times;</span>
+      </div>
+
+      <div id="content-change">
+
+            <div class="container">
+                <h1>Change Destination</h1>
+                    <form action="#Tokyo">
+                     
+                    <input type="text" name="parcel_number" value="#001A" class="change-location" title="Parcel ID"> <br> 
+                    <input type="text" name="new_area" class="change-location" placeholder="Enter new Destination"> <br>
+                        <button type="submit" id="sbt-button">Change Destination</button>
+                    </form>
+            </div>
+            </div>
+
+    </div>
+  </div>
+
+  <div id="id03" class="ADC-CH1-modal">
+    <div class="ADC-CH1-modal-content ADC-CH1-card-4 ADC-CH1-animate-zoom">
+  
+      <div class="ADC-CH1-center"><br>
+        <span onclick="document.getElementById('id03').style.display='none'" class="ADC-CH1-button ADC-CH1-xlarge ADC-CH1-transparent ADC-CH1-display-topright" title="Close Modal">&times;</span>
+      </div>
+
+      <div id="content-change">
+
+            <div class="container">
+                <h1>Change Destination</h1>
+                    <form action="#Tokyo">
+                     
+                    <input type="text" name="parcel_number" value="#002A" class="change-location" title="Parcel ID"> <br> 
+                    <input type="text" name="new_area" class="change-location" placeholder="Enter new Destination"> <br>
+                        <button type="submit" id="sbt-button">CHANGE Destination</button>
+                    </form>
+            </div>
+            </div>
+
+    </div>
+  </div>
+  
+  <div id="id05" class="ADC-CH1-modal">
+    <div class="ADC-CH1-modal-content ADC-CH1-card-4 ADC-CH1-animate-zoom">
+  
+      <div class="ADC-CH1-center"><br>
+        <span onclick="document.getElementById('id05').style.display='none'" class="ADC-CH1-button ADC-CH1-xlarge ADC-CH1-transparent ADC-CH1-display-topright" title="Close Modal">&times;</span>
+      </div>
+
+      <div id="content-change">
+
+            <div class="container">
+                <h1>Change Destination</h1>
+                    <form action="#Tokyo">
+                     
+                    <input type="text" name="parcel_number" value="#003A" class="change-location" title="Parcel ID"> <br> 
+                    <input type="text" name="new_area" class="change-location" placeholder="Enter new Destination"> <br>
+                        <button type="submit" id="sbt-button">CHANGE Destination</button>
+                    </form>
+            </div>
+            </div>
+
+    </div>
+  </div>
+
+  <div id="id02" class="ADC-CH1-modal">
+    <div class="ADC-CH1-modal-content ADC-CH1-card-4 ADC-CH1-animate-zoom">
+  
+      <div class="ADC-CH1-center"><br>
+        <span onclick="document.getElementById('id02').style.display='none'" class="ADC-CH1-button ADC-CH1-xlarge ADC-CH1-transparent ADC-CH1-display-topright" title="Close Modal">&times;</span>
+      </div>
+
+      <div id="content-change">
+
+            <div class="container">
+                <h1>Cancel Order</h1>
+                    <form action="#Tokyo">
+                     
+                    <input type="text" name="parcel_number" value="#001A" class="change-location" title="Parcel ID"> <br> 
+                    <input type="text" name="parcel_name" value="Chairs" class="change-location" title="Parcel ID"> <br>
+                        <button type="submit" id="sbt-button">Cancel</button>
+                    </form>
+            </div>
+            </div>
+
+    </div>
+  </div>
+
+  <div id="id04" class="ADC-CH1-modal">
+    <div class="ADC-CH1-modal-content ADC-CH1-card-4 ADC-CH1-animate-zoom">
+  
+      <div class="ADC-CH1-center"><br>
+        <span onclick="document.getElementById('id04').style.display='none'" class="ADC-CH1-button ADC-CH1-xlarge ADC-CH1-transparent ADC-CH1-display-topright" title="Close Modal">&times;</span>
+      </div>
+
+      <div id="content-change">
+
+            <div class="container">
+                <h1>Cancel Order</h1>
+                    <form action="#Tokyo">
+                     
+                    <input type="text" name="parcel_number" value="#002A" class="change-location" title="Parcel ID"> <br> 
+                    <input type="text" name="parcel_name" value="Clothes" class="change-location" title="Parcel ID"> <br>
+                        <button type="submit" id="sbt-button">Cancel</button>
+                    </form>
+            </div>
+            </div>
+
+    </div>
+  </div>
+
+  <div id="id06" class="ADC-CH1-modal">
+    <div class="ADC-CH1-modal-content ADC-CH1-card-4 ADC-CH1-animate-zoom">
+  
+      <div class="ADC-CH1-center"><br>
+        <span onclick="document.getElementById('id06').style.display='none'" class="ADC-CH1-button ADC-CH1-xlarge ADC-CH1-transparent ADC-CH1-display-topright" title="Close Modal">&times;</span>
+      </div>
+
+      <div id="content-change">
+
+            <div class="container">
+                <h1>Cancel Order</h1>
+                    <form action="#Tokyo">
+                     
+                    <input type="text" name="parcel_number" value="#003A" class="change-location" title="Parcel ID"> <br> 
+                    <input type="text" name="parcel_name" value="Tables" class="change-location" title="Parcel ID"> <br>
+                        <button type="submit" id="sbt-button">Cancel</button>
+                    </form>
+            </div>
+            </div>
+
+    </div>
+  </div>
+    <!-- Footer -->
+  <footer class="ADC-C1-content ADC-C1-padding-64 ADC-C1-text-grey ADC-C1-xlarge">
+    <i class="fa fa-facebook-official ADC-C1-hover-opacity"></i>
+    <i class="fa fa-instagram ADC-C1-hover-opacity"></i>
+    <i class="fa fa-snapchat ADC-C1-hover-opacity"></i>
+    <i class="fa fa-pinterest-p ADC-C1-hover-opacity"></i>
+    <i class="fa fa-twitter ADC-C1-hover-opacity"></i>
+    <i class="fa fa-linkedin ADC-C1-hover-opacity"></i>
+    <p class="ADC-C1-medium">Powered by <a href="#" target="_blank" class="ADC-C1-hover-text-green">Andela</a></p>
+  <!-- End footer -->
+  </footer>
+
+<!-- END PAGE CONTENT -->
+</div>
+<script src="UI/js/main.js"></script>
+<script src="UI/js/user.js"></script>
+</body>
+
+</html>
