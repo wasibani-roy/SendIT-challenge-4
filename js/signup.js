@@ -8,12 +8,6 @@ function registerUser(event){
     let email = document.getElementById('email').value;
     let password = document.getElementById('psw').value;
     let role = document.getElementById('role').value;
-    // for (let i = 0; i < radioInput.length; i++){
-    //     if (radioInput[i].checked){
-    //         role = radioInput[i].value;
-    //         break;
-    //     }
-    // }
     let data = {
         username: username,
         email: email,
@@ -32,7 +26,7 @@ function registerUser(event){
         console.log(response);
         if (response.message === 'you have succesfully signed up') {
             alert(`You have registered as ${data['username']}`);
-            window.location.replace('UI/index.html');
+            window.location.replace('index.html');
         } else {
             alert(response.message);
         }

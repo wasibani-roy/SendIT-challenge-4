@@ -24,9 +24,9 @@ function loginUser(e){
             UserDetail = JSON.parse(atob(token.split('.')[1]));
             role = UserDetail['identity']['role'];
             if (role === 'admin') {
-                        window.location.href = "UI/admin.html";
+                        window.location.href = "admin.html";
                     } else {
-                        window.location.href = "UI/user.html";
+                        window.location.href = "user.html";
                     }
             alert(`Welcome back ${username}`);
         } else {
