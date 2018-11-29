@@ -5,17 +5,9 @@ function loginUser(e){
     e.preventDefault();
     let username = document.getElementById('user').value;
     let password = document.getElementById('pass').value;
-    let radioInput = document.getElementsByName('clientType');
-    for (let i = 0; i < radioInput.length; i++){
-        if (radioInput[i].checked){
-            role = radioInput[i].value;
-            break;
-        }
-    }
     let data = {
         username: username,
         password: password,
-        role: role
     }
     fetch(url_login, {
         method: 'POST',
@@ -29,16 +21,13 @@ function loginUser(e){
         if (response.message === 'You have successfully logged in'){
             token = response.access_token;
             localStorage.setItem('token', token)
-            switch (role) {
-                case 'admin':
-                    window.location.replace('UI/admin.html');
-                    break;
-                case 'user':
-                    window.location.replace('UI/user.html');
-                    break;
-                default:
-                    break;
-            }
+            UserDetail = JSON.parse(atob(token.split('.')[1]));
+            role = UserDetail['identity']['role'];
+            if (role === 'admin') {
+                        window.location.href = "UI/admin.html";
+                    } else {
+                        window.location.href = "UI/user.html";
+                    }
             alert(`Welcome back ${username}`);
         } else {
             alert(response.message);
