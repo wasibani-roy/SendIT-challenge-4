@@ -1,0 +1,117 @@
+body, h1, h2, h3, h4, h5, h6 {
+    font-family: "Montserrat", sans-serif;
+}
+.ADC-C1-row-padding img {margin-bottom: 12px}
+/* Set the width of the sidebar to 120px */
+.ADC-C1-sidebar {width: 120px;background: #cccccc;}
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+#main {margin-left: 190px}
+/* Remove margins from "page content" on small screens */
+
+.ADC-C1-sidebar {
+    width: 120px;
+    background: #222;
+}
+.ADC-C1-center {
+    text-align: center !important;
+}
+.ADC-C1-small {
+    font-size: 12px !important;
+}
+.ADC-C1-sidebar {
+    height: 100%;
+    width: 200px;
+    background-color: #fff;
+    position: fixed !important;
+    z-index: 1;
+    overflow: auto;
+}
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
+    display: block;
+}
+.ADC-C1-bar-block.ADC-C1-center .ADC-C1-bar-item {
+    text-align: center;
+}
+.ADC-C1-bar-block .ADC-C1-bar-item {
+    width: 100%;
+    display: block;
+    padding: 8px 16px;
+    text-align: left;
+    border: none;
+    white-space: normal;
+    float: none;
+    outline: 0;
+}
+.ADC-C1-black, .ADC-C1-hover-black:hover {
+    color: #fff !important;
+    background-color: #000 !important;
+}
+.ADC-C1-padding-large {
+    padding: 12px 24px !important;
+}
+.ADC-C1-btn, .ADC-C1-button {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.ADC-C1-btn, .ADC-C1-button {
+    border: none;
+    display: inline-block;
+    padding: 8px 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.ADC-C1-black, .ADC-C1-hover-black:hover {
+    color: #fff !important;
+}
+.ADC-C1-top {
+    top: 0;
+}
+.ADC-C1-top, .ADC-C1-bottom {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+.ADC-C1-small {
+    font-size: 12px !important;
+}
+.ADC-C1-opacity, .ADC-C1-hover-opacity:hover {
+    opacity: 0.60;
+    width: 200px;
+}
+.ADC-C1-bar {
+    width: 100%;
+    overflow: hidden;
+}
+.ADC-C1-bar .ADC-C1-bar-item {
+    padding: 8px 16px;
+    float: left;
+    width: auto;
+    border: none;
+    display: block;
+    outline: 0;
+}
+.ADC-C1-panel{
+    background-color: #fefefe !important;
+    margin-bottom: 30%;
+}
+@media only screen and (max-width: 600px) {#main {margin-left: 0}}
+@media(min-width: 993px){
+    .ADC-C1-hide-large {
+    display: none !important;
+    }
+}
+@media(max-width: 600px){
+    .ADC-C1-hide-small {
+    display: none !important;
+    }
+}

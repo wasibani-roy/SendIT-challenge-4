@@ -1,0 +1,31 @@
+#content-change {
+    padding-top: 3%;
+    padding-bottom: 70px;
+    text-align: center;
+    min-height: 100%;
+    color: #000;
+    background-color: #fefefe;
+}
+.container {
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    width: 500px;
+    color: #fff;
+    min-height: 300px;
+    text-align: center;
+}
+#content-change h1{
+	color: #275d71;
+	line-height: 1.5;
+}
+.change-location{
+	width: 100%;
+	margin-bottom: 10px;
+	height: 25px;
+	padding: 5px;
+	text-align: center;
+	outline: none;
+	border: 1px solid #275d71;
+}
