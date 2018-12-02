@@ -8,6 +8,12 @@ function registerUser(event){
     let email = document.getElementById('email').value;
     let password = document.getElementById('psw').value;
     let role = document.getElementById('role').value;
+    // for (let i = 0; i < radioInput.length; i++){
+    //     if (radioInput[i].checked){
+    //         role = radioInput[i].value;
+    //         break;
+    //     }
+    // }
     let data = {
         username: username,
         email: email,

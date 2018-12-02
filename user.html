@@ -73,54 +73,6 @@
      </div>
   </div>
 
-  <div id="Paris" class="ADC-C1-container city">
-    <div class="ADC-C1-row-padding">
-
-<div class="ADC-C1-third ADC-C1-margin-bottom">
-  <ul class="ADC-C1-ul ADC-C1-border ADC-C1-center ADC-C1-hover-shadow">
-    <li class="ADC-C1-black ADC-C1-xlarge ADC-C1-padding-32">Delivered Parcel</li>
-    <li class="ADC-C1-padding-16"><b>15</b> All Areas</li>
-    <li class="ADC-C1-padding-16"><b>5</b> Central Region</li>
-    <li class="ADC-C1-padding-16"><b>10</b> Eastern Region</li>
-    <li class="ADC-C1-padding-16"><b>0</b> Western Region</li>
-    <li class="ADC-C1-padding-16">
-      <h2 class="ADC-C1-wide">2 parcels</h2>
-      <span class="ADC-C1-opacity">per month</span>
-    </li>
-  </ul>
-</div>
-
-<div class="ADC-C1-third ADC-C1-margin-bottom">
-  
-  <ul class="ADC-C1-ul ADC-C1-border ADC-C1-center ADC-C1-hover-shadow">
-    <li class="ADC-C1-green ADC-C1-xlarge ADC-C1-padding-32">In Transit</li>
-    <li class="ADC-C1-padding-16"><b>20</b> All Areas</li>
-    <li class="ADC-C1-padding-16"><b>10</b> Central Region</li>
-    <li class="ADC-C1-padding-16"><b>6</b> Eastern Region</li>
-    <li class="ADC-C1-padding-16"><b>4</b> Western Region</li>
-    <li class="ADC-C1-padding-16">
-      <h2 class="ADC-C1-wide">3 Parcels</h2>
-      <span class="ADC-C1-opacity">per month</span>
-    </li>
-  </ul>
-</div>
-
-<div class="ADC-C1-third ADC-C1-margin-bottom">
-  <ul class="ADC-C1-ul ADC-C1-border ADC-C1-center ADC-C1-hover-shadow">
-    <li class="ADC-C1-black ADC-C1-xlarge ADC-C1-padding-32">All Orders</li>
-    <li class="ADC-C1-padding-16"><b>#001</b> Chairs</li>
-    <li class="ADC-C1-padding-16"><b>#002</b> Table</li>
-    <li class="ADC-C1-padding-16"><b>#003</b> Clothes</li>
-    <li class="ADC-C1-padding-16"><b>#004</b> Television</li>
-    <li class="ADC-C1-padding-16">
-      <h2 class="ADC-C1-wide">See More</h2>
-      <span class="ADC-C1-opacity">Orders</span>
-    </li>
-  </ul>
-</div>
-
-</div>
-  </div>
 
   <div id="Tokyo" class="ADC-C1-container city">
     <div class="panel panel-default">
@@ -175,18 +127,16 @@
   <div class="ADC-C1-content ADC-C1-justify ADC-C1-text-grey ADC-C1-padding-64" id="about">
     <h2 class="ADC-C1-text-light-grey">Create Order</h2>
     <hr style="width:200px" class="ADC-C1-opacity">
-    <form class="ADC-CH1-container" action="#London">
+    <form class="ADC-CH1-container" action="#London" id="parcelForm">
         <div class="ADC-CH1-section">
-          <label><b>Customer Name</b></label><br><br>
-          <input class="ADC-CH1-input ADC-CH1-border ADC-CH1-margin-bottom" type="text" placeholder="Enter your Name" name="parcelname" required><br><br><br>
           <label><b>Parcel Name</b></label><br><br>
-          <input class="ADC-CH1-input ADC-CH1-border ADC-CH1-margin-bottom" type="text" placeholder="Enter Parcel Name" name="parcelname" required><br><br><br>
+          <input class="ADC-CH1-input ADC-CH1-border ADC-CH1-margin-bottom" type="text" placeholder="Enter Parcel Name" name="parcelname" id="parcelname" required><br><br><br>
           <label><b>Receiver Name</b></label><br><br>
-          <input class="ADC-CH1-input ADC-CH1-border ADC-CH1-margin-bottom" type="text" placeholder="Enter Receiver Name" name="parcelname" required><br><br><br>
+          <input class="ADC-CH1-input ADC-CH1-border ADC-CH1-margin-bottom" type="text" placeholder="Enter Receiver Name" name="parcelname" id="receiver" required><br><br><br>
           <label><b>Destination</b></label><br><br>
-          <input class="ADC-CH1-input ADC-CH1-border ADC-CH1-margin-bottom" type="text" placeholder="Enter destination" name="destination" required><br><br><br>
+          <input class="ADC-CH1-input ADC-CH1-border ADC-CH1-margin-bottom" type="text" placeholder="Enter destination" name="destination" id="destination" required><br><br><br>
           <label><b>Price</b></label><br><br>
-          <input class="ADC-CH1-input ADC-CH1-border" type="text" placeholder="Enter price" name="psw" required><br><br><br>
+          <input class="ADC-CH1-input ADC-CH1-border" type="text" placeholder="Enter price" name="psw" id="price" required><br><br><br>
           <button class="ADC-CH1-button ADC-CH1-block ADC-CH1-green ADC-CH1-section ADC-CH1-padding" type="submit">Create</button>
         </div>
       </form>

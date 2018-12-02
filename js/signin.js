@@ -21,8 +21,8 @@ function loginUser(e){
         if (response.message === 'You have successfully logged in'){
             token = response.access_token;
             localStorage.setItem('token', token)
-            UserDetail = JSON.parse(atob(token.split('.')[1]));
-            role = UserDetail['identity']['role'];
+            UserIdentity = JSON.parse(atob(token.split('.')[1]));
+            role = UserIdentity['identity']['role'];
             if (role === 'admin') {
                         window.location.href = "admin.html";
                     } else {
