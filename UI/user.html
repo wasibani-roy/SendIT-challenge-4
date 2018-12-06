@@ -37,7 +37,7 @@
   <div class="ADC-C1-bar ADC-C1-black ADC-C1-opacity ADC-C1-hover-opacity-off ADC-C1-center ADC-C1-small">
     <a href="#" class="ADC-C1-bar-item ADC-C1-button home-link" >HOME</a>
     <a href="#about" class="ADC-C1-bar-item ADC-C1-button order-link" >CREATE</a>
-    <a href="index.html" class="ADC-C1-bar-item ADC-C1-button logout-link" style="width:11% !important">LOG OUT</a>
+    <a href="index.html" class="ADC-C1-bar-item ADC-C1-button logout-link" style="width:11% !important" onclick="Logout();">LOG OUT</a>
   </div>
 </div>
 
@@ -47,13 +47,10 @@
   <header class="ADC-C1-container ADC-C1-padding-32 ADC-C1-center" id="home">
     <div class="ADC-C1-panel">
   <div class="ADC-C1-row">
-    <a href="javascript:void(0)" id="testbtn" onclick="openCity(event, 'London');">
+    <a href="javascript:void(0)" id="testbtn" onclick="openTab(event, 'London');">
       <div class="ADC-C1-third tablink ADC-C1-bottombar ADC-C1-hover-light-grey ADC-C1-padding">Latest Orders</div>
     </a>
-    <a href="javascript:void(0)" onclick="openCity(event, 'Paris');">
-      <div class="ADC-C1-third tablink ADC-C1-bottombar ADC-C1-hover-light-grey ADC-C1-padding">User Profile</div>
-    </a>
-    <a href="javascript:void(0)" onclick="openCity(event, 'Tokyo');">
+    <a href="javascript:void(0)" onclick="openTab(event, 'Tokyo');">
       <div class="ADC-C1-third tablink ADC-C1-bottombar ADC-C1-hover-light-grey ADC-C1-padding">Edit Order</div>
     </a>
   </div>
@@ -111,143 +108,6 @@
   <!-- End About Section -->
   </div>
 
-  <div id="id01" class="ADC-CH1-modal">
-    <div class="ADC-CH1-modal-content ADC-CH1-card-4 ADC-CH1-animate-zoom">
-  
-      <div class="ADC-CH1-center"><br>
-        <span onclick="document.getElementById('id01').style.display='none'" class="ADC-CH1-button ADC-CH1-xlarge ADC-CH1-transparent ADC-CH1-display-topright" title="Close Modal">&times;</span>
-      </div>
-
-      <div id="content-change">
-
-            <div class="container">
-                <h1>Change Destination</h1>
-                    <form action="#Tokyo">
-                     
-                    <input type="text" name="parcel_number" value="#001A" class="change-location" title="Parcel ID"> <br> 
-                    <input type="text" name="new_area" class="change-location" placeholder="Enter new Destination"> <br>
-                        <button type="submit" id="sbt-button">Change Destination</button>
-                    </form>
-            </div>
-            </div>
-
-    </div>
-  </div>
-
-  <div id="id03" class="ADC-CH1-modal">
-    <div class="ADC-CH1-modal-content ADC-CH1-card-4 ADC-CH1-animate-zoom">
-  
-      <div class="ADC-CH1-center"><br>
-        <span onclick="document.getElementById('id03').style.display='none'" class="ADC-CH1-button ADC-CH1-xlarge ADC-CH1-transparent ADC-CH1-display-topright" title="Close Modal">&times;</span>
-      </div>
-
-      <div id="content-change">
-
-            <div class="container">
-                <h1>Change Destination</h1>
-                    <form action="#Tokyo">
-                     
-                    <input type="text" name="parcel_number" value="#002A" class="change-location" title="Parcel ID"> <br> 
-                    <input type="text" name="new_area" class="change-location" placeholder="Enter new Destination"> <br>
-                        <button type="submit" id="sbt-button">CHANGE Destination</button>
-                    </form>
-            </div>
-            </div>
-
-    </div>
-  </div>
-  
-  <div id="id05" class="ADC-CH1-modal">
-    <div class="ADC-CH1-modal-content ADC-CH1-card-4 ADC-CH1-animate-zoom">
-  
-      <div class="ADC-CH1-center"><br>
-        <span onclick="document.getElementById('id05').style.display='none'" class="ADC-CH1-button ADC-CH1-xlarge ADC-CH1-transparent ADC-CH1-display-topright" title="Close Modal">&times;</span>
-      </div>
-
-      <div id="content-change">
-
-            <div class="container">
-                <h1>Change Destination</h1>
-                    <form action="#Tokyo">
-                     
-                    <input type="text" name="parcel_number" value="#003A" class="change-location" title="Parcel ID"> <br> 
-                    <input type="text" name="new_area" class="change-location" placeholder="Enter new Destination"> <br>
-                        <button type="submit" id="sbt-button">CHANGE Destination</button>
-                    </form>
-            </div>
-            </div>
-
-    </div>
-  </div>
-
-  <div id="id02" class="ADC-CH1-modal">
-    <div class="ADC-CH1-modal-content ADC-CH1-card-4 ADC-CH1-animate-zoom">
-  
-      <div class="ADC-CH1-center"><br>
-        <span onclick="document.getElementById('id02').style.display='none'" class="ADC-CH1-button ADC-CH1-xlarge ADC-CH1-transparent ADC-CH1-display-topright" title="Close Modal">&times;</span>
-      </div>
-
-      <div id="content-change">
-
-            <div class="container">
-                <h1>Cancel Order</h1>
-                    <form action="#Tokyo">
-                     
-                    <input type="text" name="parcel_number" value="#001A" class="change-location" title="Parcel ID"> <br> 
-                    <input type="text" name="parcel_name" value="Chairs" class="change-location" title="Parcel ID"> <br>
-                        <button type="submit" id="sbt-button">Cancel</button>
-                    </form>
-            </div>
-            </div>
-
-    </div>
-  </div>
-
-  <div id="id04" class="ADC-CH1-modal">
-    <div class="ADC-CH1-modal-content ADC-CH1-card-4 ADC-CH1-animate-zoom">
-  
-      <div class="ADC-CH1-center"><br>
-        <span onclick="document.getElementById('id04').style.display='none'" class="ADC-CH1-button ADC-CH1-xlarge ADC-CH1-transparent ADC-CH1-display-topright" title="Close Modal">&times;</span>
-      </div>
-
-      <div id="content-change">
-
-            <div class="container">
-                <h1>Cancel Order</h1>
-                    <form action="#Tokyo">
-                     
-                    <input type="text" name="parcel_number" value="#002A" class="change-location" title="Parcel ID"> <br> 
-                    <input type="text" name="parcel_name" value="Clothes" class="change-location" title="Parcel ID"> <br>
-                        <button type="submit" id="sbt-button">Cancel</button>
-                    </form>
-            </div>
-            </div>
-
-    </div>
-  </div>
-
-  <div id="id06" class="ADC-CH1-modal">
-    <div class="ADC-CH1-modal-content ADC-CH1-card-4 ADC-CH1-animate-zoom">
-  
-      <div class="ADC-CH1-center"><br>
-        <span onclick="document.getElementById('id06').style.display='none'" class="ADC-CH1-button ADC-CH1-xlarge ADC-CH1-transparent ADC-CH1-display-topright" title="Close Modal">&times;</span>
-      </div>
-
-      <div id="content-change">
-
-            <div class="container">
-                <h1>Cancel Order</h1>
-                    <form action="#Tokyo">
-                     
-                    <input type="text" name="parcel_number" value="#003A" class="change-location" title="Parcel ID"> <br> 
-                    <input type="text" name="parcel_name" value="Tables" class="change-location" title="Parcel ID"> <br>
-                        <button type="submit" id="sbt-button">Cancel</button>
-                    </form>
-            </div>
-            </div>
-
-    </div>
-  </div>
     <!-- Footer -->
   <footer class="ADC-C1-content ADC-C1-padding-64 ADC-C1-text-grey ADC-C1-xlarge">
     <i class="fa fa-facebook-official ADC-C1-hover-opacity"></i>

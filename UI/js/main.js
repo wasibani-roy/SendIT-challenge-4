@@ -13,7 +13,7 @@ document.getElementById("myForm")
     document.location="user.html"
 }
 
-function openCity(evt, cityName) {
+function openTab(evt, cityName) {
   var i, x, tablinks;
   x = document.getElementsByClassName("city");
   for (i = 0; i < x.length; i++) {
