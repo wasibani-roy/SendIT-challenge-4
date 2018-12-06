@@ -104,6 +104,13 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
     background-color: #fefefe !important;
     margin-bottom: 30%;
 }
+.destination{
+    color: #111;
+}
+label.desti{
+    color: #111;
+    font-weight: 500;
+}
 @media only screen and (max-width: 600px) {#main {margin-left: 0}}
 @media(min-width: 993px){
     .ADC-C1-hide-large {
