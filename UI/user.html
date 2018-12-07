@@ -22,7 +22,7 @@
     <i class="fa fa-home ADC-C1-xxlarge"></i>
     <p>HOME</p>
   </a>
-  <a href="#about" class="ADC-C1-bar-item ADC-C1-button ADC-C1-padding-large ADC-C1-hover-black">
+  <a href="javascript:void(0)" class="ADC-C1-bar-item ADC-C1-button ADC-C1-padding-large ADC-C1-hover-black" onclick="document.getElementById('id01').style.display='block'">
     <i class="fa fa-user ADC-C1-xxlarge"></i>
     <p>CREATE</p>
   </a>
@@ -37,7 +37,7 @@
   <div class="ADC-C1-bar ADC-C1-black ADC-C1-opacity ADC-C1-hover-opacity-off ADC-C1-center ADC-C1-small">
     <a href="#" class="ADC-C1-bar-item ADC-C1-button home-link" >HOME</a>
     <a href="#about" class="ADC-C1-bar-item ADC-C1-button order-link" >CREATE</a>
-    <a href="index.html" class="ADC-C1-bar-item ADC-C1-button logout-link" style="width:11% !important" onclick="Logout();">LOG OUT</a>
+    <a href="index.html" class="ADC-C1-bar-item ADC-C1-button logout-link" style="width:11% !important">LOG OUT</a>
   </div>
 </div>
 
@@ -89,25 +89,37 @@
   </header>
 
   <!-- About Section -->
-  <div class="ADC-C1-content ADC-C1-justify ADC-C1-text-grey ADC-C1-padding-64" id="about">
+  
+
+  <div id="id01" class="ADC-CH1-modal">
+    <div class="ADC-CH1-modal-content ADC-CH1-card-4 ADC-CH1-animate-zoom">
+  
+      <div class="ADC-CH1-center"><br>
+        <span onclick="document.getElementById('id01').style.display='none'" class="ADC-CH1-button ADC-CH1-xlarge ADC-CH1-transparent ADC-CH1-display-topright" title="Close Modal">&times;</span>
+      </div>
+
+      <div class="ADC-C1-content ADC-C1-justify ADC-C1-text-grey ADC-C1-padding-64" id="about">
     <h2 class="ADC-C1-text-light-grey">Create Order</h2>
     <hr style="width:200px" class="ADC-C1-opacity">
     <form class="ADC-CH1-container" action="#London" id="parcelForm">
         <div class="ADC-CH1-section">
-          <label><b>Parcel Name</b></label><br><br>
-          <input class="ADC-CH1-input ADC-CH1-border ADC-CH1-margin-bottom" type="text" placeholder="Enter Parcel Name" name="parcelname" id="parcelname" required><br><br><br>
-          <label><b>Receiver Name</b></label><br><br>
-          <input class="ADC-CH1-input ADC-CH1-border ADC-CH1-margin-bottom" type="text" placeholder="Enter Receiver Name" name="parcelname" id="receiver" required><br><br><br>
-          <label><b>Destination</b></label><br><br>
-          <input class="ADC-CH1-input ADC-CH1-border ADC-CH1-margin-bottom" type="text" placeholder="Enter destination" name="destination" id="destination" required><br><br><br>
-          <label><b>Price</b></label><br><br>
-          <input class="ADC-CH1-input ADC-CH1-border" type="text" placeholder="Enter price" name="psw" id="price" required><br><br><br>
+          <label><b>Parcel Name</b></label><br>
+          <input class="ADC-CH1-input ADC-CH1-border ADC-CH1-margin-bottom" type="text" placeholder="Enter Parcel Name" name="parcelname" id="parcelname" required><br>
+          <label><b>Receiver Name</b></label><br>
+          <input class="ADC-CH1-input ADC-CH1-border ADC-CH1-margin-bottom" type="text" placeholder="Enter Receiver Name" name="parcelname" id="receiver" required><br>
+          <label><b>Destination</b></label><br>
+          <input class="ADC-CH1-input ADC-CH1-border ADC-CH1-margin-bottom" type="text" placeholder="Enter destination" name="destination" id="destination" required><br>
+          <label><b>Price</b></label><br>
+          <input class="ADC-CH1-input ADC-CH1-border" type="text" placeholder="Enter price" name="psw" id="price" required><br>
           <button class="ADC-CH1-button ADC-CH1-block ADC-CH1-green ADC-CH1-section ADC-CH1-padding" type="submit">Create</button>
         </div>
       </form>
-  <!-- End About Section -->
   </div>
 
+    </div>
+  </div>
+
+  
     <!-- Footer -->
   <footer class="ADC-C1-content ADC-C1-padding-64 ADC-C1-text-grey ADC-C1-xlarge">
     <i class="fa fa-facebook-official ADC-C1-hover-opacity"></i>

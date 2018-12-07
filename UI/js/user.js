@@ -33,7 +33,7 @@ function postOrder(e){
         console.log(response);
         if (response.message === 'you have succesfully placed order'){
             alert('Your order has been placed');
-            window.location.replace('user.html');
+            window.location.replace('UI/user.html');
         } else {
             alert(response.message);
         }
@@ -138,6 +138,7 @@ function singleOrder(parcel_id){
             <div class="container">
                 <h1 class="destination">Change Destination</h1>
                     <form action="#Tokyo" id="updateorder">
+                    <label class="desti">Please enter the new destination below</label><br>
                     <input type="hidden" name="parcel_number" value=${parcel_id} id="parcelId" class="change-location" title="Parcel ID"> <br> 
                     <input type="text" name="new_area" id="destination" class="change-location" placeholder="Enter new Destination"> <br>
                         <button onclick="updateDestination();">Change Destination</button>
@@ -147,11 +148,13 @@ function singleOrder(parcel_id){
 
 }
 function updateDestination() {
+    // e.preventDefault();
     let destiurl = 'https://wasibani-sendit.herokuapp.com/api/v2/parcels/';
     let destination = document.getElementById('destination').value;
     let parcel_id = document.getElementById('parcelId').value;
     token = localStorage.getItem('token')
 
+    // console.log(destination);
     fetch(destiurl + parcel_id + '/destination', {
             method: 'PUT',
             headers: {
@@ -165,18 +168,25 @@ function updateDestination() {
         })
         .then(res => res.json())
         .then(response => {
+            // console.log(data)
             if (response.message === "destination updated succesfully") {
                 alert(`Order destination succesfully updated`);
-                window.location.replace('user.html');
-            } else if (response.msg === "Token has expired") {
+                window.location.replace('UI/user.html');
+            } else if (response.message === "Some fields are missing!") {
+                alert(`Please input a destination`);
+                window.location.replace('UI/user.html');
+            } else if (response.message === "destination incorrect") {
+                alert(`destination incorrect`);
+                window.location.replace('UI/user.html');
+            }else if (response.msg === "Token has expired") {
                 alert(`You token has expired please login again`);
-                window.location.replace('index.html');
+                window.location.replace('UI/index.html');
             } else if (response.message === "You can not change the destination of a delivered product") {
                 alert(`You can not change the destination of a delivered product`);
-                window.location.replace('user.html');
+                window.location.replace('UI/user.html');
             } else if (response.message === "Failed to update destination") {
                 alert(`Failed to update the destination please try again`);
-                window.location.replace('user.html');
+                window.location.replace('UI/user.html');
             } else {
                 swal({
                     type: 'error',
@@ -188,10 +198,12 @@ function updateDestination() {
         })
 }
 function cancelOrder(parcel_id) {
+    // e.preventDefault();
     let destiurl = 'https://wasibani-sendit.herokuapp.com/api/v2/parcels/';
     let parcel_order_id=parcel_id
     token = localStorage.getItem('token')
 
+    // console.log(destination);
     fetch(destiurl + parcel_order_id + '/cancel', {
             method: 'PUT',
             headers: {
@@ -202,18 +214,19 @@ function cancelOrder(parcel_id) {
         })
         .then(res => res.json())
         .then(response => {
+            // console.log(data)
             if (response.message === "You have successfully cancelled the order") {
                 alert(`You have successfully cancelled the order`);
-                window.location.replace('user.html');
+                window.location.replace('UI/user.html');
             } else if (response.msg === "Token has expired") {
                 alert(`You token has expired please login again`);
-                window.location.replace('index.html');
+                window.location.replace('UI/index.html');
             } else if (response.message === "You can not cancel a delivered product") {
                 alert(`You can not cancel a delivered product`);
-                window.location.replace('user.html');
+                window.location.replace('UI/user.html');
             } else if (response.message === "Failed to cancel order") {
                 alert(`Failed to cancel order`);
-                window.location.replace('user.html');
+                window.location.replace('UI/user.html');
             } else {
                 swal({
                     type: 'error',

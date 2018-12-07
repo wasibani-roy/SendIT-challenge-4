@@ -108,8 +108,8 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
     color: #111;
 }
 label.desti{
-    color: #111;
-    font-weight: 500;
+    color: green;
+    font-weight: 700;
 }
 @media only screen and (max-width: 600px) {#main {margin-left: 0}}
 @media(min-width: 993px){
