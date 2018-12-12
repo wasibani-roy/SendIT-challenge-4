@@ -1,6 +1,6 @@
 document.getElementById('parcelForm').addEventListener('submit', postOrder);
-document.getElementById('orderEdit').addEventListener('load', editorders());
 document.getElementById('orderItem').addEventListener('load', getOrderHistory());
+document.getElementById('orderComplete').addEventListener('load', completeOrder());
 const orderUrl = 'https://wasibani-sendit.herokuapp.com/api/v2/parcels/';
 
 function postOrder(e){
@@ -44,7 +44,6 @@ function postOrder(e){
 function getOrderHistory() {
     let histUrl = 'https://wasibani-sendit.herokuapp.com/api/v2/parcels/user';
     token = localStorage.getItem('token')
-    console.log(token);
     fetch(histUrl, {
         headers: {
             'Authorization': `Bearer ${token}`
@@ -58,6 +57,53 @@ function getOrderHistory() {
             <th>No Orders currently in progress</th>
         </tr>`
         document.getElementById('orderItem').innerHTML = output;
+        } 
+        else{let output = `
+        <tr class="titles">
+            <th>Parcel Order Id</th>
+            <th>Parcel Name</th>
+            <th>Receiver Name</th>
+            <th>Location</th>
+            <th>Delivery Status</th>
+            <th>destination</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>`
+        for(let k in response){
+            console.log(response[k].item);
+            output += `
+            <tr class="orders">
+                <td>${response[k].parcel_order_id}</td>
+                <td>${response[k].parcel_name}</td>
+                <td>${response[k].receiver}</td>
+                <td>${response[k].location}</td>
+                <td>${response[k].delivery_status}</td>
+                <td>${response[k].destination}</td>
+                <td>${response[k].status}</td>
+                <td><button class="btn1 btn1-primary btn-destination" onclick="singleOrder(${response[k].parcel_order_id})">Edit destination</button><button class="btn1 btn1-primary btn-cancel" onclick="cancelOrder(${response[k].parcel_order_id})">Cancel Order</button></td>
+            </tr>`;
+            console.log(output);}
+        document.getElementById('orderItem').innerHTML = output;};
+        
+    })
+}
+
+function completeOrder() {
+    let histUrl = 'https://wasibani-sendit.herokuapp.com/api/v2/parcels/user/complete';
+    token = localStorage.getItem('token')
+    fetch(histUrl, {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        } 
+    })
+    .then(res => res.json())
+    .then(response => {
+        if (response.message === "There are no complete orders")
+         {let output = `
+        <tr class="titles">
+            <th>No orders are currently complete</th>
+        </tr>`
+        document.getElementById('orderComplete').innerHTML = output;
         } 
         else{let output = `
         <tr class="titles">
@@ -82,51 +128,7 @@ function getOrderHistory() {
                 <td>${response[k].status}</td>
             </tr>`;
             console.log(output);}
-        document.getElementById('orderItem').innerHTML = output;};
-        
-    })
-}
-
-function editorders() {
-    let histUrl = 'https://wasibani-sendit.herokuapp.com/api/v2/parcels/user';
-    token = localStorage.getItem('token')
-    console.log(token);
-    fetch(histUrl, {
-        headers: {
-            'Authorization': `Bearer ${token}`
-        } 
-    })
-    .then(res => res.json())
-    .then(response => {
-        if (response.message === "you have no orders at this time")
-         {let output = `
-        <tr class="titles">
-            <th>No Orders currently in progress</th>
-        </tr>`
-        document.getElementById('orderEdit').innerHTML = output;
-        } 
-        else{let output = `
-        <tr class="titles">
-            <th>Parcel Name</th>
-            <th>Parcel Order Id</th>
-            <th>Receiver Name</th>
-            <th>Location</th>
-            <th>Delivery Status</th>
-            <th>Action</th>
-        </tr>`
-        for(let k in response){
-            console.log(response[k].item);
-            output += `
-            <tr class="orders">
-                <td>${response[k].parcel_name}</td>
-                <td>${response[k].parcel_order_id}</td>
-                <td>${response[k].receiver}</td>
-                <td>${response[k].location}</td>
-                <td>${response[k].delivery_status}</td>
-                <td><button class="btn1 btn1-primary" onclick="singleOrder(${response[k].parcel_order_id})">Edit destination</button><button class="btn1 btn1-primary" onclick="cancelOrder(${response[k].parcel_order_id})">Cancel Order</button></td>
-            </tr>`;
-            console.log(output);}
-        document.getElementById('orderEdit').innerHTML = output;};
+        document.getElementById('orderComplete').innerHTML = output;};
         
     })
 }
@@ -144,17 +146,15 @@ function singleOrder(parcel_id){
                         <button onclick="updateDestination();">Change Destination</button>
                     </form>
             </div>`;
-    document.getElementById('orderEdit').innerHTML = newoutput;
+    document.getElementById('orderItem').innerHTML = newoutput;
 
 }
 function updateDestination() {
-    // e.preventDefault();
     let destiurl = 'https://wasibani-sendit.herokuapp.com/api/v2/parcels/';
     let destination = document.getElementById('destination').value;
     let parcel_id = document.getElementById('parcelId').value;
     token = localStorage.getItem('token')
 
-    // console.log(destination);
     fetch(destiurl + parcel_id + '/destination', {
             method: 'PUT',
             headers: {
@@ -198,12 +198,10 @@ function updateDestination() {
         })
 }
 function cancelOrder(parcel_id) {
-    // e.preventDefault();
     let destiurl = 'https://wasibani-sendit.herokuapp.com/api/v2/parcels/';
     let parcel_order_id=parcel_id
     token = localStorage.getItem('token')
 
-    // console.log(destination);
     fetch(destiurl + parcel_order_id + '/cancel', {
             method: 'PUT',
             headers: {
