@@ -2,7 +2,6 @@ document.getElementById('orderItem').addEventListener('load', getAdminOrderHisto
 function getAdminOrderHistory() {
     let histUrl = 'https://wasibani-sendit.herokuapp.com/api/v2/parcels/';
     token = localStorage.getItem('token')
-    console.log(token);
     fetch(histUrl, {
         headers: {
             'Authorization': `Bearer ${token}`
@@ -52,7 +51,6 @@ document.getElementById('orderEdit').addEventListener('load', editUserOrders());
 function editUserOrders() {
     let histUrl = 'https://wasibani-sendit.herokuapp.com/api/v2/parcels/';
     token = localStorage.getItem('token')
-    console.log(token);
     fetch(histUrl, {
         headers: {
             'Authorization': `Bearer ${token}`
@@ -87,7 +85,7 @@ function editUserOrders() {
                 <td>${response[k].receiver}</td>
                 <td>${response[k].location}</td>
                 <td>${response[k].delivery_status}</td>
-                <td><button class="btn1 btn1-primary" onclick="singleOrderLocation(${response[k].parcel_order_id})">Edit location</button><button class="btn1 btn1-primary" onclick="singleOrderStatus(${response[k].parcel_order_id})">Edit status</button></td>
+                <td><button class="btn1 btn1-primary btn-location" onclick="singleOrderLocation(${response[k].parcel_order_id})">Edit location</button><button class="btn1 btn1-primary btn-status" onclick="singleOrderStatus(${response[k].parcel_order_id})">Edit status</button></td>
             </tr>`;
             console.log(output);}
         document.getElementById('orderEdit').innerHTML = output;};
@@ -111,13 +109,11 @@ function singleOrderLocation(parcel_id){
 
 }
 function updateLocation() {
-    // e.preventDefault();
     let destiurl = 'https://wasibani-sendit.herokuapp.com/api/v2/parcels/';
     let new_location = document.getElementById('location').value;
     let parcel_id = document.getElementById('parcelId').value;
     token = localStorage.getItem('token')
 
-    // console.log(destination);
     fetch(destiurl + parcel_id + '/presentLocation', {
             method: 'PUT',
             headers: {
@@ -131,7 +127,6 @@ function updateLocation() {
         })
         .then(res => res.json())
         .then(response => {
-            // console.log(data)
             if (response.message === "present location updated succesfully") {
                 alert(`present location updated succesfully`);
                 window.location.replace('admin.html');
@@ -172,7 +167,6 @@ function singleOrderStatus(parcel_id){
 
 }
 function updateDeliveryStatus() {
-    // e.preventDefault();
     let destiurl = 'https://wasibani-sendit.herokuapp.com/api/v2/parcels/';
     let new_status = document.getElementsByName('statusType');
     for (let i = 0; i < new_status.length; i++){
@@ -184,7 +178,6 @@ function updateDeliveryStatus() {
     let parcel_id = document.getElementById('parcelId').value;
     token = localStorage.getItem('token')
 
-    // console.log(destination);
     fetch(destiurl + parcel_id + '/status', {
             method: 'PUT',
             headers: {
@@ -198,7 +191,6 @@ function updateDeliveryStatus() {
         })
         .then(res => res.json())
         .then(response => {
-            // console.log(data)
             if (response.message === "Delivery status updated succesfully") {
                 alert(`Delivery status updated succesfully`);
                 window.location.replace('admin.html');
