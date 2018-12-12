@@ -2,7 +2,6 @@ document.getElementById('orderItem').addEventListener('load', getAdminOrderHisto
 function getAdminOrderHistory() {
     let histUrl = 'https://wasibani-sendit.herokuapp.com/api/v2/parcels/';
     token = localStorage.getItem('token')
-    console.log(token);
     fetch(histUrl, {
         headers: {
             'Authorization': `Bearer ${token}`
@@ -87,7 +86,7 @@ function editUserOrders() {
                 <td>${response[k].receiver}</td>
                 <td>${response[k].location}</td>
                 <td>${response[k].delivery_status}</td>
-                <td><button class="btn1 btn1-primary" onclick="singleOrderLocation(${response[k].parcel_order_id})">Edit location</button><button class="btn1 btn1-primary" onclick="singleOrderStatus(${response[k].parcel_order_id})">Edit status</button></td>
+                <td><button class="btn1 btn1-primary btn-location" onclick="singleOrderLocation(${response[k].parcel_order_id})">Edit location</button><button class="btn1 btn1-primary btn-status" onclick="singleOrderStatus(${response[k].parcel_order_id})">Edit status</button></td>
             </tr>`;
             console.log(output);}
         document.getElementById('orderEdit').innerHTML = output;};
@@ -101,8 +100,8 @@ function singleOrderLocation(parcel_id){
             <div class="container">
                 <h1>Change Location</h1>
                     <form action="" id="updateorder">
-                     
-                    <input type="text" name="parcel_number" value=${parcel_id} id="parcelId" class="change-location" title="Parcel ID"> <br> 
+                     <label class="desti">Please enter current parcel location</label><br>
+                    <input type="hidden" name="parcel_number" value=${parcel_id} id="parcelId" class="change-location" title="Parcel ID"> <br> 
                     <input type="text" name="new_location" id="location" class="change-location" placeholder="Enter parcel present location"> <br>
                         <button onclick="updateLocation();">Change location</button>
                     </form>
@@ -111,12 +110,12 @@ function singleOrderLocation(parcel_id){
 
 }
 function updateLocation() {
-
     let destiurl = 'https://wasibani-sendit.herokuapp.com/api/v2/parcels/';
     let new_location = document.getElementById('location').value;
     let parcel_id = document.getElementById('parcelId').value;
     token = localStorage.getItem('token')
 
+    // console.log(destination);
     fetch(destiurl + parcel_id + '/presentLocation', {
             method: 'PUT',
             headers: {
@@ -130,18 +129,25 @@ function updateLocation() {
         })
         .then(res => res.json())
         .then(response => {
+            // console.log(data)
             if (response.message === "present location updated succesfully") {
                 alert(`present location updated succesfully`);
-                window.location.replace('admin.html');
+                window.location.replace('UI/admin.html');
             } else if (response.msg === "Token has expired") {
                 alert(`You token has expired please login again`);
-                window.location.replace('index.html');
+                window.location.replace('UI/index.html');
+            } else if (response.message === "present location is incorrect") {
+                alert(`Please enter a valid location`);
+                window.location.replace('UI/admin.html');
+            } else if (response.message === "Some fields are missing!") {
+                alert(`Location field can not be empty`);
+                window.location.replace('UI/admin.html');
             } else if (response.message === "Failed to update present location") {
                 alert(`Failed to update present location`);
-                window.location.replace('admin.html');
+                window.location.replace('UI/admin.html');
             } else {
                 alert(response.message);
-                window.location.replace('admin.html');
+                window.location.replace('UI/admin.html');
             }
 
         })
@@ -153,7 +159,8 @@ function singleOrderStatus(parcel_id){
             <div class="container">
                 <h1 style="color:#111;">Change Delivery Status</h1>
                     <form action="" id="updateorder">
-                    <input type="text" name="parcel_number" value=${parcel_id} id="parcelId" class="change-location" title="Parcel ID"> <br> 
+                    <label class="desti">Please select parcel delivery status</label><br>
+                    <input type="hidden" name="parcel_number" value=${parcel_id} id="parcelId" class="change-location" title="Parcel ID"> <br> 
                     <input type="radio" value="delivered" checked name="statusType"><label class="status">Delivered</label>
                     <input type="radio" value="transit" name="statusType"><label class="status">In Transit</label><br>
                         <button onclick="updateDeliveryStatus();">Change Delivery Status</button>
@@ -189,16 +196,19 @@ function updateDeliveryStatus() {
         .then(response => {
             if (response.message === "Delivery status updated succesfully") {
                 alert(`Delivery status updated succesfully`);
-                window.location.replace('admin.html');
+                window.location.replace('UI/admin.html');
             } else if (response.msg === "Token has expired") {
                 alert(`You token has expired please login again`);
-                window.location.replace('index.html');
+                window.location.replace('UI/index.html');
+            } else if (response.message === "Delivery status is incorrect") {
+                alert(`Delivery status is incorrect`);
+                window.location.replace('UI/admin.html');
             } else if (response.message === "Failed to update delivery status") {
                 alert(`Failed to update delivery status`);
-                window.location.replace('admin.html');
+                window.location.replace('UI/admin.html');
             } else {
                 alert(response.message);
-                window.location.replace('admin.html');
+                window.location.replace('UI/admin.html');
             }
 
         })

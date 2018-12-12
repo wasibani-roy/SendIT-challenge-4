@@ -1,6 +1,6 @@
 document.getElementById('parcelForm').addEventListener('submit', postOrder);
-document.getElementById('orderEdit').addEventListener('load', editorders());
 document.getElementById('orderItem').addEventListener('load', getOrderHistory());
+document.getElementById('orderComplete').addEventListener('load', completeOrder());
 const orderUrl = 'https://wasibani-sendit.herokuapp.com/api/v2/parcels/';
 
 function postOrder(e){
@@ -33,7 +33,7 @@ function postOrder(e){
         console.log(response);
         if (response.message === 'you have succesfully placed order'){
             alert('Your order has been placed');
-            window.location.replace('user.html');
+            window.location.replace('UI/user.html');
         } else {
             alert(response.message);
         }
@@ -44,7 +44,6 @@ function postOrder(e){
 function getOrderHistory() {
     let histUrl = 'https://wasibani-sendit.herokuapp.com/api/v2/parcels/user';
     token = localStorage.getItem('token')
-    console.log(token);
     fetch(histUrl, {
         headers: {
             'Authorization': `Bearer ${token}`
@@ -58,6 +57,53 @@ function getOrderHistory() {
             <th>No Orders currently in progress</th>
         </tr>`
         document.getElementById('orderItem').innerHTML = output;
+        } 
+        else{let output = `
+        <tr class="titles">
+            <th>Parcel Order Id</th>
+            <th>Parcel Name</th>
+            <th>Receiver Name</th>
+            <th>Location</th>
+            <th>Delivery Status</th>
+            <th>destination</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>`
+        for(let k in response){
+            console.log(response[k].item);
+            output += `
+            <tr class="orders">
+                <td>${response[k].parcel_order_id}</td>
+                <td>${response[k].parcel_name}</td>
+                <td>${response[k].receiver}</td>
+                <td>${response[k].location}</td>
+                <td>${response[k].delivery_status}</td>
+                <td>${response[k].destination}</td>
+                <td>${response[k].status}</td>
+                <td><button class="btn1 btn1-primary btn-destination" onclick="singleOrder(${response[k].parcel_order_id})">Edit destination</button><button class="btn1 btn1-primary btn-cancel" onclick="cancelOrder(${response[k].parcel_order_id})">Cancel Order</button></td>
+            </tr>`;
+            console.log(output);}
+        document.getElementById('orderItem').innerHTML = output;};
+        
+    })
+}
+
+function completeOrder() {
+    let histUrl = 'https://wasibani-sendit.herokuapp.com/api/v2/parcels/user/complete';
+    token = localStorage.getItem('token')
+    fetch(histUrl, {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        } 
+    })
+    .then(res => res.json())
+    .then(response => {
+        if (response.message === "There are no complete orders")
+         {let output = `
+        <tr class="titles">
+            <th>No orders are currently complete</th>
+        </tr>`
+        document.getElementById('orderComplete').innerHTML = output;
         } 
         else{let output = `
         <tr class="titles">
@@ -82,51 +128,7 @@ function getOrderHistory() {
                 <td>${response[k].status}</td>
             </tr>`;
             console.log(output);}
-        document.getElementById('orderItem').innerHTML = output;};
-        
-    })
-}
-
-function editorders() {
-    let histUrl = 'https://wasibani-sendit.herokuapp.com/api/v2/parcels/user';
-    token = localStorage.getItem('token')
-    console.log(token);
-    fetch(histUrl, {
-        headers: {
-            'Authorization': `Bearer ${token}`
-        } 
-    })
-    .then(res => res.json())
-    .then(response => {
-        if (response.message === "you have no orders at this time")
-         {let output = `
-        <tr class="titles">
-            <th>No Orders currently in progress</th>
-        </tr>`
-        document.getElementById('orderEdit').innerHTML = output;
-        } 
-        else{let output = `
-        <tr class="titles">
-            <th>Parcel Name</th>
-            <th>Parcel Order Id</th>
-            <th>Receiver Name</th>
-            <th>Location</th>
-            <th>Delivery Status</th>
-            <th>Action</th>
-        </tr>`
-        for(let k in response){
-            console.log(response[k].item);
-            output += `
-            <tr class="orders">
-                <td>${response[k].parcel_name}</td>
-                <td>${response[k].parcel_order_id}</td>
-                <td>${response[k].receiver}</td>
-                <td>${response[k].location}</td>
-                <td>${response[k].delivery_status}</td>
-                <td><button class="btn1 btn1-primary" onclick="singleOrder(${response[k].parcel_order_id})">Edit destination</button><button class="btn1 btn1-primary" onclick="cancelOrder(${response[k].parcel_order_id})">Cancel Order</button></td>
-            </tr>`;
-            console.log(output);}
-        document.getElementById('orderEdit').innerHTML = output;};
+        document.getElementById('orderComplete').innerHTML = output;};
         
     })
 }
@@ -138,12 +140,13 @@ function singleOrder(parcel_id){
             <div class="container">
                 <h1 class="destination">Change Destination</h1>
                     <form action="#Tokyo" id="updateorder">
+                    <label class="desti">Please enter the new destination below</label><br>
                     <input type="hidden" name="parcel_number" value=${parcel_id} id="parcelId" class="change-location" title="Parcel ID"> <br> 
                     <input type="text" name="new_area" id="destination" class="change-location" placeholder="Enter new Destination"> <br>
                         <button onclick="updateDestination();">Change Destination</button>
                     </form>
             </div>`;
-    document.getElementById('orderEdit').innerHTML = newoutput;
+    document.getElementById('orderItem').innerHTML = newoutput;
 
 }
 function updateDestination() {
@@ -165,18 +168,25 @@ function updateDestination() {
         })
         .then(res => res.json())
         .then(response => {
+            // console.log(data)
             if (response.message === "destination updated succesfully") {
                 alert(`Order destination succesfully updated`);
-                window.location.replace('user.html');
-            } else if (response.msg === "Token has expired") {
+                window.location.replace('UI/user.html');
+            } else if (response.message === "Some fields are missing!") {
+                alert(`Please input a destination`);
+                window.location.replace('UI/user.html');
+            } else if (response.message === "destination incorrect") {
+                alert(`destination incorrect`);
+                window.location.replace('UI/user.html');
+            }else if (response.msg === "Token has expired") {
                 alert(`You token has expired please login again`);
-                window.location.replace('index.html');
+                window.location.replace('UI/index.html');
             } else if (response.message === "You can not change the destination of a delivered product") {
                 alert(`You can not change the destination of a delivered product`);
-                window.location.replace('user.html');
+                window.location.replace('UI/user.html');
             } else if (response.message === "Failed to update destination") {
                 alert(`Failed to update the destination please try again`);
-                window.location.replace('user.html');
+                window.location.replace('UI/user.html');
             } else {
                 swal({
                     type: 'error',
@@ -202,18 +212,19 @@ function cancelOrder(parcel_id) {
         })
         .then(res => res.json())
         .then(response => {
+            // console.log(data)
             if (response.message === "You have successfully cancelled the order") {
                 alert(`You have successfully cancelled the order`);
-                window.location.replace('user.html');
+                window.location.replace('UI/user.html');
             } else if (response.msg === "Token has expired") {
                 alert(`You token has expired please login again`);
-                window.location.replace('index.html');
+                window.location.replace('UI/index.html');
             } else if (response.message === "You can not cancel a delivered product") {
                 alert(`You can not cancel a delivered product`);
-                window.location.replace('user.html');
+                window.location.replace('UI/user.html');
             } else if (response.message === "Failed to cancel order") {
                 alert(`Failed to cancel order`);
-                window.location.replace('user.html');
+                window.location.replace('UI/user.html');
             } else {
                 swal({
                     type: 'error',

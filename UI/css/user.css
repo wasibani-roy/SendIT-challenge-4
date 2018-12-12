@@ -108,17 +108,79 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
     color: #111;
 }
 label.desti{
-    color: #111;
-    font-weight: 500;
+    color: green;
+    font-weight: 700;
+}
+.btn-destination{
+    background-color: #906c0c !important;
+    border-color: #ffb900 !important;
+    margin-right: 20px;
+    font-weight: 700;
+}
+.btn-cancel{
+    background-color: #de0f17 !important;
+    border-color: #de0f17 !important;
+    margin-right: 20px;
+    font-weight: 700;
+}
+.btn-order{
+    background-color: green !important;
+    border-color: #fff !important;
+}
+.parcel-top{
+    margin-bottom: 30px;
+    width: 90%;
+    margin-left: 20px;
+}
+.form-search{
+    margin-top: 20px;
+}
+.ordersearch{
+    width: 71%;
+    padding: 9px 12px;
+    font-size: 14px;
+    float: left;
+    color: #000;
+    outline: none;
+    border: 1px solid #424141;
+    background: #fff;
+    -webkit-appearance: none;
+}
+.search1{
+    font-size: 12px;
+    color: #fff;
+    outline: none;
+    padding: 10.6px 9px;
+    border: none;
+    background: #008000;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    -webkit-appearance: none;
+}
+.parcel-order-heading{
+    text-align: center;
+}
+.sendit-top-heading{
+    color: #2f396b;
+    font-weight: 700;
 }
 @media only screen and (max-width: 600px) {#main {margin-left: 0}}
 @media(min-width: 993px){
     .ADC-C1-hide-large {
     display: none !important;
     }
+    table{
+        width: 100%;
+    }
 }
 @media(max-width: 600px){
     .ADC-C1-hide-small {
     display: none !important;
+    }
+    table{
+        width: 100%;
     }
 }

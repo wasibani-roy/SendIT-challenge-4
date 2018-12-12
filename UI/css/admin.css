@@ -1,3 +1,12 @@
 label.status{
 	color: #222;
 }
+.btn-location{
+	background-color: #2529d8 !important;
+	border-color: #2529d8 !important;
+	margin-right: 20px;
+}
+.btn-status{
+	background-color: #11694d !important;
+	border-color: #11694d !important;
+}
