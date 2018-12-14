@@ -133,7 +133,7 @@
           <label><b>Receiver Name</b></label><br>
           <input class="ADC-CH1-input ADC-CH1-border ADC-CH1-margin-bottom" type="text" placeholder="Enter Receiver Name" name="parcelname" id="receiver" required><br>
           <label><b>Destination</b></label><br>
-          <input class="ADC-CH1-input ADC-CH1-border ADC-CH1-margin-bottom" type="text" placeholder="Enter destination" name="destination" id="destination" required><br>
+          <input class="ADC-CH1-input ADC-CH1-border ADC-CH1-margin-bottom" type="text" placeholder="Enter destination" oninput="autoCompleteLocation(`destination`)" name="destination" id="destination" required><br>
           <label><b>Price</b></label><br>
           <input class="ADC-CH1-input ADC-CH1-border" type="text" placeholder="Enter price" name="psw" id="price" required><br>
           <button class="ADC-CH1-button ADC-CH1-block ADC-CH1-green ADC-CH1-section ADC-CH1-padding" type="submit">Create</button>
@@ -274,6 +274,8 @@
 </div>
 <script src="js/main.js"></script>
 <script src="js/user.js"></script>
+<script src="js/autoComplete.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKrdunvQki9NiDheJuU2PWLGQ-d0hG9e8&libraries=places&callback=autoCompleteLocation"></script>
 <script src="js/userSearch.js"></script>
 <script src="js/logout.js"></script>
 </body>
