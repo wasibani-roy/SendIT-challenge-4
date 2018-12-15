@@ -3,10 +3,10 @@ const url_login = 'https://wasibani-sendit.herokuapp.com/api/v2/auth/login/';
 
 function loginUser(e){
     e.preventDefault();
-    let username = document.getElementById('user').value;
+    let userEmail = document.getElementById('user').value;
     let password = document.getElementById('pass').value;
     let data = {
-        username: username,
+        email: userEmail,
         password: password,
     }
     fetch(url_login, {
