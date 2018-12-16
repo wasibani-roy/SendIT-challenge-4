@@ -142,7 +142,7 @@ function singleOrder(parcel_id){
                     <form action="#Tokyo" id="updateorder">
                     <label class="desti">Please enter the new destination below</label><br>
                     <input type="hidden" name="parcel_number" value=${parcel_id} id="parcelId" class="change-location" title="Parcel ID"> <br> 
-                    <input type="text" name="new_area" id="destination" class="change-location" placeholder="Enter new Destination"> <br>
+                    <input type="text" name="new_area" id="destination" oninput="autoCompleteLocation('destination');" class="change-location" placeholder="Enter new Destination"> <br>
                         <button onclick="updateDestination();">Change Destination</button>
                     </form>
             </div>`;
