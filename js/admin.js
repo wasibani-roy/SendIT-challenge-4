@@ -1,7 +1,11 @@
 document.getElementById('orderItem').addEventListener('load', getAdminOrderHistory());
 function getAdminOrderHistory() {
     let histUrl = 'https://wasibani-sendit.herokuapp.com/api/v2/parcels/';
-    token = localStorage.getItem('token')
+    token = localStorage.getItem('token');
+    if (token === null) {
+        alert('You must log in');
+        window.location.replace('index.html');
+    };
     fetch(histUrl, {
         headers: {
             'Authorization': `Bearer ${token}`
@@ -50,7 +54,11 @@ function getAdminOrderHistory() {
 document.getElementById('orderEdit').addEventListener('load', editUserOrders());
 function editUserOrders() {
     let histUrl = 'https://wasibani-sendit.herokuapp.com/api/v2/parcels/';
-    token = localStorage.getItem('token')
+    token = localStorage.getItem('token');
+    if (token === null) {
+        alert('You must log in');
+        window.location.replace('index.html');
+    };
     fetch(histUrl, {
         headers: {
             'Authorization': `Bearer ${token}`
@@ -112,7 +120,11 @@ function updateLocation() {
     let destiurl = 'https://wasibani-sendit.herokuapp.com/api/v2/parcels/';
     let new_location = document.getElementById('location').value;
     let parcel_id = document.getElementById('parcelId').value;
-    token = localStorage.getItem('token')
+    token = localStorage.getItem('token');
+    if (token === null) {
+        alert('You must log in');
+        window.location.replace('index.html');
+    };
 
     fetch(destiurl + parcel_id + '/presentLocation', {
             method: 'PUT',
