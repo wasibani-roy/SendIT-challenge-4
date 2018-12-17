@@ -1,7 +1,11 @@
 document.getElementById('orderItem').addEventListener('load', getAdminOrderHistory());
 function getAdminOrderHistory() {
     let histUrl = 'https://wasibani-sendit.herokuapp.com/api/v2/parcels/';
-    token = localStorage.getItem('token')
+    token = localStorage.getItem('token');
+    if (token === null) {
+        alert('You must log in');
+        window.location.replace('UI/index.html');
+    };
     fetch(histUrl, {
         headers: {
             'Authorization': `Bearer ${token}`
@@ -50,7 +54,11 @@ function getAdminOrderHistory() {
 document.getElementById('orderEdit').addEventListener('load', editUserOrders());
 function editUserOrders() {
     let histUrl = 'https://wasibani-sendit.herokuapp.com/api/v2/parcels/';
-    token = localStorage.getItem('token')
+    token = localStorage.getItem('token');
+    if (token === null) {
+        alert('You must log in');
+        window.location.replace('UI/index.html');
+    };
     console.log(token);
     fetch(histUrl, {
         headers: {

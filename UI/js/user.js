@@ -5,7 +5,11 @@ const orderUrl = 'https://wasibani-sendit.herokuapp.com/api/v2/parcels/';
 
 function postOrder(e){
     e.preventDefault();
-    token = localStorage.getItem('token')
+    token = localStorage.getItem('token');
+    if (token === null) {
+        alert('You must log in');
+        window.location.replace('UI/index.html');
+    };
     let parcel_name = document.getElementById('parcelname').value;
     let receiver_name = document.getElementById('receiver').value;
     let destination = document.getElementById('destination').value;
@@ -43,7 +47,11 @@ function postOrder(e){
 
 function getOrderHistory() {
     let histUrl = 'https://wasibani-sendit.herokuapp.com/api/v2/parcels/user';
-    token = localStorage.getItem('token')
+    token = localStorage.getItem('token');
+    if (token === null) {
+        alert('You must log in');
+        window.location.replace('UI/index.html');
+    };
     fetch(histUrl, {
         headers: {
             'Authorization': `Bearer ${token}`
@@ -90,7 +98,11 @@ function getOrderHistory() {
 
 function completeOrder() {
     let histUrl = 'https://wasibani-sendit.herokuapp.com/api/v2/parcels/user/complete';
-    token = localStorage.getItem('token')
+    token = localStorage.getItem('token');
+    if (token === null) {
+        alert('You must log in');
+        window.location.replace('UI/index.html');
+    };
     fetch(histUrl, {
         headers: {
             'Authorization': `Bearer ${token}`
