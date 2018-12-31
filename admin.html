@@ -20,12 +20,12 @@
 <!-- Icon Bar (Sidebar - hidden on small screens) -->
 <nav class="ADC-C1-sidebar ADC-C1-bar-block ADC-C1-small ADC-C1-hide-small ADC-C1-center">
   <!-- Avatar image in top left corner -->
-  <img src="image/avatar3.png" class="avatar-img">
+  <img src="image/SendIT-logo.jpg" class="avatar-img">
   <a href="#" class="ADC-C1-bar-item ADC-C1-button ADC-C1-padding-large ADC-C1-black">
     <i class="fa fa-home ADC-C1-xxlarge"></i>
     <p>HOME</p>
   </a>
-  <a href="javascript:void(0)" class="ADC-C1-bar-item ADC-C1-button ADC-C1-padding-large ADC-C1-hover-black" onclick="document.getElementById('id01').style.display='block'">
+  <a href="javascript:void(0)" class="ADC-C1-bar-item ADC-C1-button ADC-C1-padding-large ADC-C1-hover-black">
     <i class="fa fa-user ADC-C1-xxlarge"></i>
   </a>
   <a onclick="Logout();" class="ADC-C1-bar-item ADC-C1-button ADC-C1-padding-large ADC-C1-hover-black">
@@ -51,6 +51,9 @@
     <a href="javascript:void(0)" id="testbtn" onclick="openTab(event, 'London');">
       <div class="ADC-C1-third tablink ADC-C1-bottombar ADC-C1-hover-light-grey ADC-C1-padding">Latest Orders</div>
     </a>
+    <a href="javascript:void(0)" onclick="openTab(event, 'Tokyo');">
+      <div class="ADC-C1-third tablink ADC-C1-bottombar ADC-C1-hover-light-grey sendit-top-heading ADC-C1-padding">SendIT Search</div>
+    </a>
     <a href="javascript:void(0)" onclick="openTab(event, 'Paris');">
       <div class="ADC-C1-third tablink ADC-C1-bottombar ADC-C1-hover-light-grey ADC-C1-padding">Edit Orders</div>
     </a>
@@ -66,6 +69,24 @@
        </div>
        <div class="panel-body">
          <table class="table table-striped table-bordered table-condensed" id="orderItem">
+         </table>
+       </div>
+     </div>
+  </div>
+
+  <div id="Tokyo" class="ADC-C1-container city">
+    <div class="panel panel-default">
+       <div class="panel-heading">
+         <strong>
+           <span class="glyphicon glyphicon-th"></span>
+           <span>SendIT Search</span>
+         </strong>
+       </div>
+       <div class="panel-body">
+      <form action="#" method="post" id="searchForm" class="form-search">    
+          <input type="text" class="ordersearch" placeholder="please enter parcel name" name="email" id="searchdata" required=""><button class="search1" type="submit">Search</button>          
+      </form>
+         <table class="table table-striped table-bordered table-condensed" id="orderSearch">
          </table>
        </div>
      </div>
@@ -251,6 +272,8 @@
 </div>
 <script src="js/main.js"></script>
 <script src="js/admin.js"></script>
+<script src="js/adminSearch.js"></script>
+<script src="js/autoComplete.js"></script>
 <script src="js/logout.js"></script>
 </body>
 
