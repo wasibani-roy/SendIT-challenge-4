@@ -110,7 +110,7 @@ function singleOrderLocation(parcel_id){
                     <form action="" id="updateorder">
                      <label class="desti">Please enter current parcel location</label><br>
                     <input type="hidden" name="parcel_number" value=${parcel_id} id="parcelId" class="change-location" title="Parcel ID"> <br> 
-                    <input type="text" name="new_location" id="location" class="change-location" placeholder="Enter parcel present location"> <br>
+                    <input type="text" name="new_location" id="location" oninput="autoCompleteLocation('location');" class="change-location" placeholder="Enter parcel present location"> <br>
                         <button onclick="updateLocation();">Change location</button>
                     </form>
             </div>`;
